@@ -3,12 +3,18 @@ const db = require('../db/database');
 
 const Student = {
     getAll: (callback) => {
-        db.all('SELECT * FROM students', callback);
+        db.all('SELECT * FROM students', (err, rows) => {
+            if (err) {
+                console.error("Error fetching students:", err.message);
+                return callback(err);
+            }
+            console.log("Fetched students:", rows);
+            return callback(null, rows);
+        });
     },
     getById: (id, callback) => {
         db.get('SELECT * FROM students WHERE student_id = ?', [id], callback);
-    },
-    // Add methods for create, update, delete...
+   },
    
     
 
@@ -33,5 +39,17 @@ Student.delete = (id, callback) => {
     db.run(sql, [id], callback);
 };
 
+Student.getPerformance = (callback) => {
+    // Example SQL query - adjust it according to your data schema and needs
+    const sql = 'SELECT date_column AS date, performance_metric AS score FROM students';
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            console.error("Error fetching performance data:", err.message);
+            return callback(err);
+        }
+        console.log("Fetched performance data:", rows);
+        return callback(null, rows);
+    });
+};
 
 module.exports = Student;

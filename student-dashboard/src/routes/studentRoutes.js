@@ -14,4 +14,7 @@ router.put('/:id', studentController.updateStudent);
 
 router.delete('/:id', studentController.deleteStudent);
 
+console.log('getPerformanceData function:', studentController.getPerformanceData);
+router.get('/performance', studentController.getPerformanceData);
+
 module.exports = router;

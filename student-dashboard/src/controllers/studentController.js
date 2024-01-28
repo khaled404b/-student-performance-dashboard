@@ -49,4 +49,18 @@ exports.deleteStudent = (req, res) => {
             res.status(200).send({ message: 'Student deleted successfully', result });
         }
     });
+
+
+
 };
+
+exports.getPerformanceData = (req, res) => {
+    Student.getPerformance((err, data) => {
+            if (err) {
+                console.log("getPerformanceData function:", studentController.getPerformanceData);
+                res.status(500).send({ message: err.message });
+            } else {
+                res.send(data);
+            }
+        });
+    }; 
