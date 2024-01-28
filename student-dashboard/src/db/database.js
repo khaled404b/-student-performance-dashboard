@@ -16,7 +16,7 @@ let db = new sqlite3.Database(dbPath, (err) => {
             } else {
                 console.log('Schema executed successfully.');
             }
-        });
+        }); 
     }
 });
 
