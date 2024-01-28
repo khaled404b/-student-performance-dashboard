@@ -21,4 +21,32 @@ exports.getStudentById = (req, res) => {
     });
 };
 
-// Implement controllers for create, update, delete...
+exports.createStudent = (req, res) => {
+    Student.create(req.body, (err, result) => {
+        if (err) {
+            res.status(500).send({ message: err.message });
+        } else {
+            res.status(201).send({ message: 'Student created successfully', result });
+        }
+    });
+};
+
+exports.updateStudent = (req, res) => {
+    Student.update(req.params.id, req.body, (err, result) => {
+        if (err) {
+            res.status(500).send({ message: err.message });
+        } else {
+            res.status(200).send({ message: 'Student updated successfully', result });
+        }
+    });
+};
+
+exports.deleteStudent = (req, res) => {
+    Student.delete(req.params.id, (err, result) => {
+        if (err) {
+            res.status(500).send({ message: err.message });
+        } else {
+            res.status(200).send({ message: 'Student deleted successfully', result });
+        }
+    });
+};
