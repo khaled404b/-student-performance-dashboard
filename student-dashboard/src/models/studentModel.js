@@ -39,17 +39,15 @@ Student.delete = (id, callback) => {
     db.run(sql, [id], callback);
 };
 
-Student.getPerformance = (callback) => {
-    // Example SQL query - adjust it according to your data schema and needs
-    const sql = 'SELECT date_column AS date, performance_metric AS score FROM students';
-    db.all(sql, [], (err, rows) => {
-        if (err) {
-            console.error("Error fetching performance data:", err.message);
-            return callback(err);
-        }
-        console.log("Fetched performance data:", rows);
-        return callback(null, rows);
-    });
-};
+
+Student.getAverageScores= (callback) => {
+    const sql = 'SELECT AVG(G1) as average_G1, AVG(G2) as average_G2, AVG(G3) as average_G3 FROM students';
+    db.all(sql, callback);
+  };
+  Student.getPerformanceByGender= (callback) => {
+    const sql = 'SELECT sex, AVG(G1) as average_G1, AVG(G2) as average_G2, AVG(G3) as average_G3 FROM students GROUP BY sex';
+    db.all(sql, callback);
+  };
+
 
 module.exports = Student;
