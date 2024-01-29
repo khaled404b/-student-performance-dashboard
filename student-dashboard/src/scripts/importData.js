@@ -2,7 +2,7 @@ const fs = require('fs');
 const csvParser = require('csv-parser');
 const db = require('../db/database');
 
-const csvFilePath = 'C:\\Users\\kokox\\MyProject\\-student-performance-dashboard\\student-dashboard\\src\\scripts\\student-por.csv';
+const csvFilePath = 'C:\\Users\\hp\\Desktop\\MyProject\\GUST\\student-performance-dashboard\\student-dashboard\\src\\scripts\\student-por.csv';
 
 fs.createReadStream(csvFilePath)
   .pipe(csvParser())
