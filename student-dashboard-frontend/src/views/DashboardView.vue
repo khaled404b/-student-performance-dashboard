@@ -1,16 +1,24 @@
 <template>
   <div class="dashboard-view">
+    <PerformanceByGenderChart />
+    <AverageScoresChart />
     <StudentTable />
-    <PerformanceChart />
+
+    <!-- Other components as needed -->
   </div>
 </template>
 
 <script>
 import StudentTable from '../components/StudentTable.vue';
-import PerformanceChart from '../components/PerformanceChart.vue';
+import PerformanceByGenderChart from '../components/PerformanceByGenderChart.vue';
+import AverageScoresChart from '../components/AverageScoresChart.vue';
 
 export default {
   name: 'Dashboard',
-  components: { StudentTable, PerformanceChart }
+  components: {
+    StudentTable,
+    PerformanceByGenderChart,
+    AverageScoresChart,
+  },
 };
 </script>

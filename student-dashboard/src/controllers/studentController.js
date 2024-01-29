@@ -54,13 +54,23 @@ exports.deleteStudent = (req, res) => {
 
 };
 
-exports.getPerformanceData = (req, res) => {
-    Student.getPerformance((err, data) => {
-            if (err) {
-                console.log("getPerformanceData function:", studentController.getPerformanceData);
-                res.status(500).send({ message: err.message });
-            } else {
-                res.send(data);
-            }
-        });
-    }; 
+
+exports.getAverageScores = (req, res) => {
+    Student.getAverageScores((err, data) => {
+      if (err) {
+        res.status(500).send({ message: err.message });
+      } else {
+        res.send(data);
+      }
+    });
+  };
+  
+  exports.getPerformanceByGender = (req, res) => {
+    Student.getPerformanceByGender((err, data) => {
+      if (err) {
+        res.status(500).send({ message: err.message });
+      } else {
+        res.send(data);
+      }
+    });
+  };
