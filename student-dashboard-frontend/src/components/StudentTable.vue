@@ -93,9 +93,7 @@
   export default {
     name: 'StudentTable',
     data() {
-      return {
-        students: [],
-      };
+      return { students: [] };
     },
     async mounted() {
       try {
@@ -104,11 +102,10 @@
       } catch (error) {
         console.error('Error fetching students:', error);
       }
-    },
+    }
   };
   </script>
   
-  /* Responsive design for StudentTable */
   <style scoped>
   .table {
     @apply min-w-full divide-y divide-gray-200;
@@ -119,4 +116,3 @@
     }
   }
   </style>
-  

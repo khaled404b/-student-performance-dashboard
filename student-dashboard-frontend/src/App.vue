@@ -1,26 +1,27 @@
 <template>
   <div id="app">
     <Navbar />
-    <StudentTable/>
-    <router-view/>
+    <div class="container mx-auto p-4">
+      <router-view/>
+      <StudentTable/>
+    </div>
     <Footer />
-    
   </div>
 </template>
 
 <script>
 import Navbar from './components/Navbar.vue';
 import Footer from './components/Footer.vue';
+import PerformanceChart from './components/PerformanceChart.vue';
 import StudentTable from './components/StudentTable.vue';
-
 
 export default {
   name: 'App',
   components: {
     Navbar,
-    Footer,
     StudentTable,
-
+    Footer,
+    
   }
 };
 </script>
